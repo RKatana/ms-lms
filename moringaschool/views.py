@@ -2,11 +2,15 @@ from django.shortcuts import render
 from typing import Any, TypeVar as T, QuerySet
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
-from django.views.generic.edit import (CreateView,
-                                       UpdateView,
-                                       DeleteView
-                                      )
-
+from django.views.generic.edit import (
+                                        CreateView,
+                                        UpdateView,
+                                        DeleteView
+                                    )
+from django.contrib.auth.mixins import (
+                                        LoginRequiredMixin,
+                                        PermissionRequiredMixin
+                                    )
 from moringaschool.models import Course
 
 class OwnerMixin(object):
@@ -23,7 +27,7 @@ class OwnerEditMixin(object):
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
-class OwnerCourseMixin(OwnerMixin):
+class OwnerCourseMixin(OwnerMixin, LoginRequiredMixin,PermissionRequiredMixin):
     model = Course
     fields = ['subject', 'title', 'slug', 'overview']
     success_url = reverse_lazy('manage_course_list')
@@ -38,16 +42,18 @@ class ManageCourseListView(OwnerCourseMixin, ListView):
     '''
     model = Course
     template_name = '/courses/manage/list.html'
+    permission_required = 'courses.view_course'
 
     def get_queryset(self) -> QuerySet[T]:
         qs = super().get_queryset()
         return qs.filter(owner= self.request.user)
 
 class CourseCreateView(OwnerCourseEditMixin, CreateView):
-    ...
+    permission_required = 'courses.add_course'
 
 class CourseUpdateView(OwnerCourseEditMixin, UpdateView):
-    ...
+    permission_required = 'courses.change_course'
 
 class CourseDeleteView(OwnerCourseMixin, DeleteView):
     template_name = 'courses/manage/delete.html'
+    permission_required = 'courses.delete_course'
