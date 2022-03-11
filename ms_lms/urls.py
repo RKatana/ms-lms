@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include, reverse_lazy
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('accounts/login/', auth_views.LoginView.as_view(next_page ='/admin/'), name='login'),
+    path('accounts/login/', auth_views.LoginView.as_view(next_page=reverse_lazy('manage_course_list')), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('admin/', admin.site.urls),
+    path('course/', include('moringaschool.urls'))
 ]

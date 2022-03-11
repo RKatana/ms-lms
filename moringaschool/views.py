@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from typing import Any, TypeVar as T, QuerySet
+from typing import Any, TypeVar as T
+from django.db.models.query import QuerySet
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.edit import (
@@ -29,7 +30,7 @@ class OwnerEditMixin(object):
 
 class OwnerCourseMixin(OwnerMixin, LoginRequiredMixin,PermissionRequiredMixin):
     model = Course
-    fields = ['subject', 'title', 'slug', 'overview']
+    fields = ['cohort', 'title', 'slug', 'overview']
     success_url = reverse_lazy('manage_course_list')
 
 class OwnerCourseEditMixin(OwnerCourseMixin, OwnerEditMixin):
@@ -41,7 +42,7 @@ class ManageCourseListView(OwnerCourseMixin, ListView):
        The class overrides the get_queryset method of ListView to only retrieve courses created by the current user
     '''
     model = Course
-    template_name = '/courses/manage/list.html'
+    template_name = 'courses/manage/list.html'
     permission_required = 'courses.view_course'
 
     def get_queryset(self) -> QuerySet[T]:
