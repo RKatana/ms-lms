@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="{% static "css/index.css" %}" rel="stylesheet">
+    <title>{% block title %}MS LMS{% endblock %}</title>
+</head>
+<body>
+    <div id="header">
+        <a href="/" class="logo">MS LMS</a>
+        <ul class="menu">
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url "logout" %}">Sign out</a></li>
+            {% else %}
+            <li><a href="{% url "login" %}">Sign in</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/
+    jquery.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            {% block domready %}
+            {% endblock %}
+        });
+    </script>
+</body>
+</html>
