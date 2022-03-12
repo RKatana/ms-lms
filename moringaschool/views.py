@@ -1,6 +1,7 @@
 
 from django.forms.models import modelform_factory
 from django.apps import apps
+from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 from django.shortcuts import render, redirect, get_object_or_404
 from typing import Any, TypeVar as T
 from django.db.models.query import QuerySet
@@ -169,3 +170,18 @@ class ModuleContentListView(TemplateResponseMixin, View):
         module = get_object_or_404(Module,id=module_id,course__owner=request.user)
 
         return self.render_to_response({'module': module})
+
+class ModuleOrderView(CsrfExemptMixin, JsonRequestResponseMixin, View):
+    def post(self, request):
+        for id, order in self.request_json.items():
+            Module.objects.filter(id = id, course__owner = request.user)\
+                .update(order = order)
+        return self.render_json_response({"saved": 'OK'})
+
+class ContentOrderView(CsrfExemptMixin, JsonRequestResponseMixin, View):
+    def post(self, request):
+        for id, order in self.request_json.items():
+            Course.objects.filter(id = id, course__owner = request.user)\
+                .update(order = order)
+        return self.render_json_response({"saved": 'OK'})
+

@@ -21,11 +21,45 @@
         {% block content %}
         {% endblock %}
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/
-    jquery.min.js"></script>
-    <script>
+
+
+    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script async src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script async>
         $(document).ready(() => {
             {% block domready %}
+            $('#modules').sortable({
+                stop:(event, ui)=>{
+                    module_order = {};
+                    $('#modules').children().each(()=>{
+                        $(this).find('.order').text($(this).index()+1);
+                        module_order[$(this).data('id')] = $(this).index();
+                    });
+                    $.ajax({
+                        type: 'POST',
+                        url: '{% url "module_order" %}',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: JSON.stringify(modules_order)
+                    });
+                }
+            });
+            $('#module-contents').sortable({
+                stop:(event, ui)=>{
+                    contents_order = {};
+                    $('#modules').children().each(()=>{
+                        $(this).find('.order').text($(this).index()+1);
+                        contents_order[$(this).data('id')] = $(this).index();
+                    });
+                    $.ajax({
+                        type: 'POST',
+                        url: '{% url "content_order" %}',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: JSON.stringify(contents_order)
+                    })
+                }
+            })
             {% endblock %}
         });
     </script>
