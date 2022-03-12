@@ -5,7 +5,9 @@ from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 from django.shortcuts import render, redirect, get_object_or_404
 from typing import Any, TypeVar as T
 from django.db.models.query import QuerySet
+from django.db.models import Count
 from django.urls import reverse_lazy
+from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.base import TemplateResponseMixin, View
 from django.views.generic.edit import (
@@ -21,6 +23,7 @@ from moringaschool.models import (
                                     Course,
                                     Content,
                                     Module,
+                                    Cohort,
                                 )
 from moringaschool.forms import ModuleFormSet
 
@@ -185,3 +188,23 @@ class ContentOrderView(CsrfExemptMixin, JsonRequestResponseMixin, View):
                 .update(order = order)
         return self.render_json_response({"saved": 'OK'})
 
+
+class CourseListView(TemplateResponseMixin, View):
+    model = Course
+    template_name = 'courses/course/list.html'
+    def get(self, request, cohort=None):
+        cohorts = Cohort.objects.annotate(total_courses=Count('courses'))
+        courses = Course.objects.annotate(total_modules=Count('modules'))
+        if cohort:
+            cohort = get_object_or_404(Cohort, slug=cohort)
+            courses = courses.filter(cohort=cohort)
+        context = {
+            'cohorts': cohorts,
+            'cohort': cohort,
+            'courses': courses
+            }
+        return self.render_to_response(context)
+
+class CourseDetailView(DetailView):
+    model = Course
+    template_name = 'courses/course/detail.html'

@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path, include, reverse_lazy
 from django.contrib.auth import views as auth_views
 
+from moringaschool.views import CourseListView
+
 urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(next_page=reverse_lazy('manage_course_list')), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('admin/', admin.site.urls),
-    path('course/', include('moringaschool.urls'))
+    path('course/', include('moringaschool.urls')),
+    path('', CourseListView.as_view(), name='course_list'),
 ]
