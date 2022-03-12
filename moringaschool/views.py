@@ -1,8 +1,12 @@
-from django.shortcuts import render
+
+from django.forms.models import modelform_factory
+from django.apps import apps
+from django.shortcuts import render, redirect, get_object_or_404
 from typing import Any, TypeVar as T
 from django.db.models.query import QuerySet
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
+from django.views.generic.base import TemplateResponseMixin, View
 from django.views.generic.edit import (
                                         CreateView,
                                         UpdateView,
@@ -12,7 +16,12 @@ from django.contrib.auth.mixins import (
                                         LoginRequiredMixin,
                                         PermissionRequiredMixin
                                     )
-from moringaschool.models import Course
+from moringaschool.models import (
+                                    Course,
+                                    Content,
+                                    Module,
+                                )
+from moringaschool.forms import ModuleFormSet
 
 class OwnerMixin(object):
     '''Owner mixin class'''
@@ -58,3 +67,36 @@ class CourseUpdateView(OwnerCourseEditMixin, UpdateView):
 class CourseDeleteView(OwnerCourseMixin, DeleteView):
     template_name = 'courses/manage/delete.html'
     permission_required = 'courses.delete_course'
+
+
+class CourseModuleUpdateView(TemplateResponseMixin, View):
+    """This class handles the formset to add, update and delete modules for a specific course"""
+    template_name = 'courses/module/formset.html'
+    course = None
+
+    def get_formset(self, data = None):
+        return ModuleFormSet(instance = self.course, data=data)
+
+    def dispatch(self, request, pk):
+        self.course = get_object_or_404(Course, id= pk, owner = request.user)
+
+        return super().dispatch(request, pk)
+
+    def get(self, request, *args, **kwargs):
+        formset = self.get_formset()
+        context = {
+            'course': self.course,
+            'formset': formset
+        }
+        return self.render_to_response(context)
+
+    def post(self, request, *args, **kwargs):
+        formset = self.get_formset(data= request.POST)
+        context = {
+            'course': self.course,
+            'formset':formset
+        }
+        if formset.is_valid():
+            formset.save()
+            return redirect('manage_course_list')
+        return self.render_to_response(context)
