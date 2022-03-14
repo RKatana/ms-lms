@@ -7,6 +7,9 @@ name = "pypi"
 django = "*"
 pillow = "*"
 django-braces = "*"
+django-crispy-forms = "*"
+django-registration = "*"
+django-embed-video = "*"
 
 [dev-packages]
 

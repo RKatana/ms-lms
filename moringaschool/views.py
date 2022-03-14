@@ -26,7 +26,7 @@ from moringaschool.models import (
                                     Cohort,
                                 )
 from moringaschool.forms import ModuleFormSet
-
+from students.forms import CourseEnrollForm
 class OwnerMixin(object):
     '''Owner mixin class'''
     def get_queryset(self) -> QuerySet[T]:
@@ -72,6 +72,10 @@ class CourseDeleteView(OwnerCourseMixin, DeleteView):
     template_name = 'courses/manage/delete.html'
     permission_required = 'courses.delete_course'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['enroll_form'] = CourseEnrollForm(initial={'course':self.object})
+        return context
 
 class CourseModuleUpdateView(TemplateResponseMixin, View):
     """This class handles the formset to add, update and delete modules for a specific course"""
