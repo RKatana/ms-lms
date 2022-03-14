@@ -5,8 +5,8 @@ Module {{ module.order|add:1 }}: {{ module.title }}
 {% endblock %}
 {% block content %}
 {% with course=module.course %}
-<h1>Course "{{ course.title }}"</h1>
 <div class="contents">
+    <h1>Course "{{ course.title }}"</h1>
     <h3>Modules</h3>
     <ul id="modules">
         {% for m in course.modules.all %}
@@ -27,16 +27,16 @@ Module {{ module.order|add:1 }}: {{ module.title }}
     Edit modules</a></p>
 </div>
 <div class="module">
-    <h2>Module {{ module.order|add:1 }}: {{ module.title }}</h2>
+    <h2>Module {{ module.order|add:1 }} Content</h2>
     <h3>Module contents:</h3>
     <div id="module-contents">
         {% for content in module.contents.all %}
         <div data-id="{{ content.id }}">
             {% with item=content.item %}
                 <p>{{ item }} ({{ item|model_name }})</p>
-                <a href="{% url "module_content_update" module.id item|model_name item.id %}">Edit</a>
-                <form action="{% url "module_content_delete" content.id %}" method="post">
-                    <input type="submit" value="Delete">
+                <a href="{% url "module_content_update" module.id item|model_name item.id %}"><button class="btn btn-outline-info">Edit {{ item|model_name }}</button></a>
+                <form class="d-inline" action="{% url "module_content_delete" content.id %}" method="post">
+                    <input type="submit" value="Delete" class="btn btn-outline-danger">
                     {% csrf_token %}
                 </form>
             {% endwith %}

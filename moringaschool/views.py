@@ -27,6 +27,7 @@ from moringaschool.models import (
                                 )
 from moringaschool.forms import ModuleFormSet
 from students.forms import CourseEnrollForm
+from django.contrib import messages
 class OwnerMixin(object):
     '''Owner mixin class'''
     def get_queryset(self) -> QuerySet[T]:
@@ -71,6 +72,7 @@ class CourseUpdateView(OwnerCourseEditMixin, UpdateView):
 class CourseDeleteView(OwnerCourseMixin, DeleteView):
     template_name = 'courses/manage/delete.html'
     permission_required = 'courses.delete_course'
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -167,6 +169,7 @@ class ContentDeleteView(View):
         module = content.module
         content.item.delete()
         content.delete()
+        messages.error(self.request, f"{content.title} has been deleted")
         return redirect('module_content_list', module.id)
 
 

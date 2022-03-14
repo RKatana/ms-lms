@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block title %}
 {% if object %}
 Edit content "{{ object.title }}"
@@ -7,18 +8,17 @@ Add new content
 {% endif %}
 {% endblock %}
 {% block content %}
-<h1>{% if object %}
-    Edit content "{{ object.title }}"
-    {% else %}
-    Add new content
-    {% endif %}
-</h1>
-<div class="module">
-    <h2>Course info</h2>
+<div class="container d- justify-content-center mt-5">
+    <h1 class="text-center text-info">{% if object %}
+        Edit content "{{ object.title }}"
+        {% else %}
+        Add new content
+        {% endif %}
+    </h1>
     <form action="" method="post" enctype="multipart/form-data">
-        {{ form.as_p }}
+        {{ form|crispy }}
         {% csrf_token %}
-        <p><input type="submit" value="Save content"></p>
+        <p><input type="submit" value="Save content" class="btn btn-outline-info"></p>
     </form>
 </div>
 {% endblock %}

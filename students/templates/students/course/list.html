@@ -1,20 +1,35 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}My courses{% endblock %}
 {% block content %}
-<h1>My courses</h1>
-<div class="module">
-{% for course in object_list %}
-<div class="course-info">
-<h3>{{ course.title }}</h3>
-<p><a href="{% url "student_course_detail" course.id %}">
-Access contents</a></p>
-</div>
-{% empty %}
-<p>
-You are not enrolled in any courses yet.
-<a href="{% url "course_list" %}">Browse courses</a>
-to enroll in a course.
-</p>
-{% endfor %}
+<div class="container mt-5">
+    <h1 class="text-info mb-4 pb-4">Enrolled Courses</h1>
+    <div class="row">
+        {% for course in object_list %}
+        <div class="col-md-4">
+            <div class="card shadow-lg">
+                <div class="card-image">
+                    <img src="{% static 'images/moringa-logo.png' %}" alt="" width="100%" class="px-4">
+                </div>
+                <div class="card-header ">
+                    <h3 class="text-info pl-3">{{ course.title }}</h3>
+                </div>
+                <div class="card-text">
+                    <p class="pt-3 pl-5"><a href="{% url "student_course_detail" course.id %}" class="card-link h5 text-center "> Access content</a></p>
+                </div>
+            </div>
+                
+                
+        </div>
+        {% empty %}
+        <p class="text-info">
+        You are not enrolled in any courses yet.
+        </p>
+        {% endfor %}
+        </div>
+    </div>
+
+
+
 </div>
 {% endblock %}

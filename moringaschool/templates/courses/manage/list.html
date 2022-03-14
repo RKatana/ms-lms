@@ -1,25 +1,46 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}My courses{% endblock %}
 {% block content %}
-<h1>My courses</h1>
-<div class="module">
-    {% for course in object_list %}
-    <div class="course-info">
-        <h3>{{ course.title }}</h3>
-        <p>
-        <a href="{% url "course_update" course.id %}">Update</a>
-        <a href="{% url "course_delete" course.id %}">Delete</a>
-        <a href="{% url "course_module_update" course.id %}">Edit modules</a>
-        {% if course.modules.count > 0 %}
-            <a href="{% url "module_content_list" course.modules.first.id %}"> Manage contents</a>
-        {% endif %}
-        </p>
+
+{% if messages %}
+{% for message in messages %}
+    <div class="text-center alert alert-{{ message.tags }}">
+        {{ message|safe }}
     </div>
-    {% empty %}
-        <p>You haven't created any courses yet.</p>
-    {% endfor %}
-    <p>
-        <a href="{% url "course_create" %}" class="button">Create new course</a>
-    </p>
+{% endfor %}
+{% endif %}
+
+<div class="container">
+    <div class="row">
+        <h1 class="text-center col-12 my-5 ">My courses</h1>
+        <div class="col-12">
+            <button class="btn btn-outline-info mb-3">
+                <a href="{% url "course_create" %}" >Add a new course</a>
+            </button>
+        </div>
+        {% for course in object_list %}
+        <div class="col-md-4">
+            <div class="card shadow-lg" style="">
+                <img class="card-img-top px-5 pt-5" src="{% static 'images/moringa-logo.png' %}" alt="Card image cap" width="">
+                <div class="card-body">
+                  <h3 class="card-title text-info pl-3">{{course.title}}</h3>
+                  <p class="card-text">{{ course.overview|truncatewords:5 }}</p>
+                </div>
+                <div class="card-body">
+                  <a href="{% url "course_update" course.id %}" class="card-link">Update</a>
+                  <a href="{% url "course_delete" course.id %}" class="card-link">Delete</a>
+                  <a href="{% url "course_module_update" course.id %}" class="card-link">Update</a> <br>
+                  {% if course.modules.count > 0 %}
+                    <a href="{% url "module_content_list" course.modules.first.id %}" class="card-link"> Manage contents</a>
+                  {% endif %}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">You haven't created any courses yet.</p>
+        {% endfor %}
+    </div>
+   
 </div>
 {% endblock %}
