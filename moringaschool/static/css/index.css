@@ -195,3 +195,9 @@ small.form-text{
     visibility: hidden !important;
 }
 
+
+/* Styles to override the Admin Dashboard */
+
+div#header{
+    background-color: black !important;
+}

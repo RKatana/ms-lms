@@ -196,7 +196,7 @@ class ContentOrderView(CsrfExemptMixin, JsonRequestResponseMixin, View):
         return self.render_json_response({"saved": 'OK'})
 
 
-class CourseListView(TemplateResponseMixin, View):
+class CourseListView(TemplateResponseMixin, View, LoginRequiredMixin, PermissionRequiredMixin):
     model = Course
     template_name = 'courses/course/list.html'
     def get(self, request, cohort=None):

@@ -22,9 +22,9 @@
         {% for course in object_list %}
         <div class="col-md-4">
             <div class="card shadow-lg my-2" style="">
-                <img class="card-img-top px-3 pt-5" src="{% static 'images/moringa-logo.png' %}" alt="Card image cap" width="">
+                <img class="card-img-top px-3 pt-5 w-75" src="{% static 'images/moringa-logo.png' %}" alt="Card image cap" width="">
                 <div class="card-body">
-                  <h3 class="card-title text-info pl-3">{{course.title}}</h3>
+                  <h3 class="card-title text-info">{{course.title}}</h3>
                   <p class="card-text">{{ course.overview|truncatewords:5 }}</p>
                 </div>
                 <div class="card-body">

@@ -1,0 +1,13 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+    <a class="navbar-brand" href="/">
+      <img class="mt-0 pt-0 pb-1" src="{% static 'images/moringa-logo-white.png' %}"    width="200" height="40" class="d-inline-block align-top" alt="">
+      <h1 id="site-name" class="d-inline align-center"><a class="align-center mt-auto mb-auto" href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+    </a>
+
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
