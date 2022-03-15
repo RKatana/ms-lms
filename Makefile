@@ -8,7 +8,7 @@ migrate:
 	python manage.py migrate
 
 collecstatic:
-	python manage.py collecstatic
+	python manage.py collectstatic
 
 superuser:
 	python manage.py createsuperuser --username ${name}

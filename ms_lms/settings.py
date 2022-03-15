@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from os import environ
 from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,29 +26,41 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--2^e$=jp97+3jdp^i&w6w$(wexa^l!2@ssezr(11qohve%*@mf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = environ.get('DEBUG')=='True'
+DEBUG= True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = environ.get('ALLOWED_HOSTS').split(' ')
 
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_registration',
+
+)
+
+LOCAL_APPS = (
     'moringaschool',
     'students',
+)
+
+THIRD_PARTY_APPS =(
+    'django_registration',
     'crispy_forms',
     'embed_video',
-]
+    'cloudinary',
+)
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,17 +136,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = 'staticfiles/'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_DIRS =[
     BASE_DIR/'admin-static/',
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/ 'media/'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
-LOGIN_REDIRECT_URL ='/students/courses/'
+LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -144,3 +160,5 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_PORT = os.environ.get('EMAIL_PORT')
 EMAIL_USE_TLS = True 
+
+CLOUDINARY_URL = environ.get('CLOUDINARY_URL')

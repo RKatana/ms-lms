@@ -39,6 +39,97 @@
   }
 },
 {
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2022-03-11T12:26:23.323Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "MC50",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2022-03-11T21:10:30.469Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Instructors",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2022-03-11T21:11:32.575Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "tm",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2022-03-11T21:12:34.196Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "tm",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2022-03-14T15:17:39.495Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "student",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2022-03-14T15:17:50.433Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Ruby",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Student\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2022-03-14T19:25:29.386Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Ruby",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Student\"]}}]"
+  }
+},
+{
   "model": "auth.permission",
   "pk": 1,
   "fields": {
@@ -363,11 +454,288 @@
   }
 },
 {
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add video",
+    "content_type": 10,
+    "codename": "add_video"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change video",
+    "content_type": 10,
+    "codename": "change_video"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete video",
+    "content_type": 10,
+    "codename": "delete_video"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view video",
+    "content_type": 10,
+    "codename": "view_video"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add text",
+    "content_type": 11,
+    "codename": "add_text"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change text",
+    "content_type": 11,
+    "codename": "change_text"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete text",
+    "content_type": 11,
+    "codename": "delete_text"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view text",
+    "content_type": 11,
+    "codename": "view_text"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add image",
+    "content_type": 12,
+    "codename": "add_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change image",
+    "content_type": 12,
+    "codename": "change_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete image",
+    "content_type": 12,
+    "codename": "delete_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view image",
+    "content_type": 12,
+    "codename": "view_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add file",
+    "content_type": 13,
+    "codename": "add_file"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change file",
+    "content_type": 13,
+    "codename": "change_file"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete file",
+    "content_type": 13,
+    "codename": "delete_file"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view file",
+    "content_type": 13,
+    "codename": "view_file"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add content",
+    "content_type": 14,
+    "codename": "add_content"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change content",
+    "content_type": 14,
+    "codename": "change_content"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete content",
+    "content_type": 14,
+    "codename": "delete_content"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view content",
+    "content_type": 14,
+    "codename": "view_content"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add student",
+    "content_type": 15,
+    "codename": "add_student"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change student",
+    "content_type": 15,
+    "codename": "change_student"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete student",
+    "content_type": 15,
+    "codename": "delete_student"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view student",
+    "content_type": 15,
+    "codename": "view_student"
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Instructors",
+    "permissions": [
+      1,
+      2,
+      3,
+      4,
+      9,
+      10,
+      11,
+      12,
+      5,
+      6,
+      7,
+      8,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      53,
+      54,
+      55,
+      56,
+      29,
+      30,
+      31,
+      32,
+      49,
+      50,
+      51,
+      52,
+      45,
+      46,
+      47,
+      48,
+      33,
+      34,
+      35,
+      36,
+      41,
+      42,
+      43,
+      44,
+      37,
+      38,
+      39,
+      40,
+      21,
+      22,
+      23,
+      24
+    ]
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$320000$ljZpwn0GWk0bfYeMmOZXCR$GoPvMSmlapigqHXTfDpdDqDtI0qKpgj/PES2IX/THYM=",
-    "last_login": "2022-03-11T12:14:53.209Z",
+    "last_login": "2022-03-15T18:32:30.762Z",
     "is_superuser": true,
     "username": "katana",
     "first_name": "",
@@ -376,6 +744,224 @@
     "is_staff": true,
     "is_active": true,
     "date_joined": "2022-03-11T12:07:50.479Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$KpFZsGdorRjIUNsQUmlesb$o7bLrJF3WVyPV7zHjIEby+2sDrLc/+jGxQyr4rMwVFA=",
+    "last_login": "2022-03-11T21:52:14.947Z",
+    "is_superuser": false,
+    "username": "tm",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-03-11T21:11:32Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$ebjhRZBIbkxp237VrX4Zp2$MFsAU7XHDgvVQA37Pq22B6fPgpqEHGce2Y/JZ6dBioc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-03-14T11:43:08.403Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$jCBVPd88xYdxh8nqWc5e0v$Z6Ir5QvSxQOgQig0SROMnFj3ErqLzAm4mudpRHFMRRE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-03-14T15:17:39.331Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$weMVNJrtQ44hFwvJtCu20R$fe9o1rYCvkHBygtLEeZAokdtIrWlT3hRkWRIbI42koY=",
+    "last_login": "2022-03-14T19:24:05.941Z",
+    "is_superuser": false,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-03-14T19:24:05.597Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$fU8BoLzkQDmde4tywjoKzF$8v9howtO/eRWp4Pp/S/vgMnGqPVKls6JmqegS4XDfUk=",
+    "last_login": "2022-03-14T23:24:24.589Z",
+    "is_superuser": false,
+    "username": "Katana",
+    "first_name": "",
+    "last_name": "",
+    "email": "raphael.oduor@moringaschool.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-03-14T23:22:58.151Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$FvspeRTrtb5H7cVV9BHVCM$NejvHEMzk/cDSNpjTfRkXzb6/cd6/seqcskNhADCr4s=",
+    "last_login": "2022-03-15T16:43:10.509Z",
+    "is_superuser": false,
+    "username": "Peter",
+    "first_name": "",
+    "last_name": "",
+    "email": "peter.muturi@moringaschool.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-03-15T10:21:54.895Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$Aks9pe0iWwCUGAAZUG7hCl$UpWpMclktGFo/3sq6XLcFKlAESFH5repPb72g1S9HCo=",
+    "last_login": "2022-03-15T17:57:06.599Z",
+    "is_superuser": false,
+    "username": "student1",
+    "first_name": "",
+    "last_name": "",
+    "email": "raphael.oduor@moringaschool.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-03-15T17:57:06.256Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$5xgKs6ydB3CHasGd5UO9C3$m4DS2/hm3rF4dACrgKLqUgpTpUncY7AbRmLp1yE1Rtg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student2",
+    "first_name": "",
+    "last_name": "",
+    "email": "raphael.oduor@moringaschool.com",
+    "is_staff": false,
+    "is_active": false,
+    "date_joined": "2022-03-15T18:06:15.204Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$VZrLkDBxCPH3ppMOGgT4KG$DQK3GJIxRpA+NXROdh7gnKf4fhn4dFkzzB3yI6ixc00=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student3",
+    "first_name": "Testing",
+    "last_name": "",
+    "email": "raphael.oduor@moringaschool.com",
+    "is_staff": false,
+    "is_active": false,
+    "date_joined": "2022-03-15T18:18:23.784Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$33jZ2I7Yn8iPdXd6Ou7N4j$QUhBJKYlmnsr40Z5i+GsZ82VRrOKB9Z1AWI6Z3tv8ys=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student4",
+    "first_name": "Testing",
+    "last_name": "",
+    "email": "raphael.oduor@moringaschool.com",
+    "is_staff": false,
+    "is_active": false,
+    "date_joined": "2022-03-15T18:21:37.739Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$1d5mVw52r4WxiBbOKsGFSY$+QMyLrvKvI9OxejungnlPNS4+9jWYCh3/pVvZZyoy3o=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student5",
+    "first_name": "TM",
+    "last_name": "",
+    "email": "raphael.oduor@moringaschool.com",
+    "is_staff": false,
+    "is_active": false,
+    "date_joined": "2022-03-15T18:30:00.696Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$Vm769dkzMnr0VqcruAdrBE$PdGdFF+S9lhtqFRj3hLmMyMK5aw/OHDtiQ8v4bQfQaQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student6",
+    "first_name": "TM",
+    "last_name": "",
+    "email": "raphael.oduor@moringaschool.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-03-15T18:31:44.626Z",
     "groups": [],
     "user_permissions": []
   }
@@ -453,11 +1039,75 @@
   }
 },
 {
-  "model": "sessions.session",
-  "pk": "1psrhb4i814mrztrfuv42oa9i0jkt6um",
+  "model": "contenttypes.contenttype",
+  "pk": 10,
   "fields": {
-    "session_data": ".eJxVjEEOwiAQRe_C2hCGaRnq0r1nIFMYpGpKUtqV8e7apAvd_vfef6nA21rC1mQJU1JnBer0u40cHzLvIN15vlUd67wu06h3RR-06WtN8rwc7t9B4Va-NcaEKSJ17CxTzMkYRidANkeHHokHaxF6ALYdUTYAWbpexA_Ok_Xq_QHa7TcO:1nSeAX:qHhGNPWkm06KhL3-AeY85ypv8BciEW2VAzyoc_VpBDQ",
-    "expire_date": "2022-03-25T12:14:53.216Z"
+    "app_label": "moringaschool",
+    "model": "video"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "moringaschool",
+    "model": "text"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "moringaschool",
+    "model": "image"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "moringaschool",
+    "model": "file"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "moringaschool",
+    "model": "content"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "students",
+    "model": "student"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2f07kbf2v1hcdck7d6oypfrbo7m2tn7t",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGaRnq0r1nIFMYpGpKUtqV8e7apAvd_vfef6nA21rC1mQJU1JnBer0u40cHzLvIN15vlUd67wu06h3RR-06WtN8rwc7t9B4Va-NcaEKSJ17CxTzMkYRidANkeHHokHaxF6ALYdUTYAWbpexA_Ok_Xq_QHa7TcO:1nSnBw:ChWJBBlu2LuXPhYpq8XbpTpGAojeUTWV74IYeQ6f8zI",
+    "expire_date": "2022-03-25T21:52:56.796Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4canj4cxkmde1r4gv4xa0c4uh7nh07on",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGaRnq0r1nIFMYpGpKUtqV8e7apAvd_vfef6nA21rC1mQJU1JnBer0u40cHzLvIN15vlUd67wu06h3RR-06WtN8rwc7t9B4Va-NcaEKSJ17CxTzMkYRidANkeHHokHaxF6ALYdUTYAWbpexA_Ok_Xq_QHa7TcO:1nUByA:2NdJnFwJTnsu1uOAQDLakVHhYMKTIVH4Pj8di8_dR0c",
+    "expire_date": "2022-03-29T18:32:30.766Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qqf73f0xwopzu21vrgh6vtfo43jikdx1",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGaRnq0r1nIFMYpGpKUtqV8e7apAvd_vfef6nA21rC1mQJU1JnBer0u40cHzLvIN15vlUd67wu06h3RR-06WtN8rwc7t9B4Va-NcaEKSJ17CxTzMkYRidANkeHHokHaxF6ALYdUTYAWbpexA_Ok_Xq_QHa7TcO:1nT6NG:lsHKPtLjdcgZTYd8PPm4D47ZTCk4X78eNjBAGzko1MY",
+    "expire_date": "2022-03-26T18:21:54.748Z"
   }
 },
 {
@@ -477,7 +1127,100 @@
     "title": "Django",
     "slug": "Django",
     "overview": "Django is a Python Framework",
-    "created": "2022-03-11T12:16:54.990Z"
+    "created": "2022-03-11T12:16:54.990Z",
+    "student": []
+  }
+},
+{
+  "model": "moringaschool.course",
+  "pk": 4,
+  "fields": {
+    "owner": 1,
+    "cohort": 1,
+    "title": "Flask",
+    "slug": "flask",
+    "overview": "Introduction to Flask",
+    "created": "2022-03-11T22:11:23.560Z",
+    "student": [
+      1
+    ]
+  }
+},
+{
+  "model": "moringaschool.course",
+  "pk": 5,
+  "fields": {
+    "owner": 1,
+    "cohort": 1,
+    "title": "Ruby",
+    "slug": "ruby",
+    "overview": "This is a ruby course module. \r\n\r\nHBDJKNKFDKFDFMDMKMCD,C\r\nDDMCMCDMCDC\r\n\r\nWolodmsnnfkfmkdm cknkfmksmfkmsmds,mdksmdsd sd",
+    "created": "2022-03-14T12:17:14.277Z",
+    "student": [
+      1,
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "moringaschool.course",
+  "pk": 7,
+  "fields": {
+    "owner": 1,
+    "cohort": 1,
+    "title": "Another Course",
+    "slug": "another-course",
+    "overview": "A very comprehensive course",
+    "created": "2022-03-14T21:54:58.147Z",
+    "student": [
+      1
+    ]
+  }
+},
+{
+  "model": "moringaschool.course",
+  "pk": 8,
+  "fields": {
+    "owner": 1,
+    "cohort": 1,
+    "title": "Test",
+    "slug": "test",
+    "overview": "test content",
+    "created": "2022-03-14T21:55:40.392Z",
+    "student": [
+      1
+    ]
+  }
+},
+{
+  "model": "moringaschool.course",
+  "pk": 9,
+  "fields": {
+    "owner": 1,
+    "cohort": 1,
+    "title": "React",
+    "slug": "react",
+    "overview": "nbjsscjscnsmcn smnc\r\n\r\nndksnksnsknskcskcnsk",
+    "created": "2022-03-15T10:30:18.759Z",
+    "student": [
+      1
+    ]
+  }
+},
+{
+  "model": "moringaschool.course",
+  "pk": 10,
+  "fields": {
+    "owner": 1,
+    "cohort": 1,
+    "title": "Empty",
+    "slug": "empty",
+    "overview": "mcnjdncdsncdmcks\r\n\r\ncndcjdnkdnkcksds",
+    "created": "2022-03-15T12:25:57.793Z",
+    "student": [
+      1
+    ]
   }
 },
 {
@@ -486,7 +1229,184 @@
   "fields": {
     "course": 1,
     "title": "Week 1",
-    "description": "Introduction to Django Apps"
+    "description": "Introduction to Django Apps",
+    "order": 0
+  }
+},
+{
+  "model": "moringaschool.module",
+  "pk": 4,
+  "fields": {
+    "course": 4,
+    "title": "Week 1",
+    "description": "Flask Week one content\r\n\r\nndjsnkskdsdksdmskldskldms\r\n\r\n\r\n\r\ndmskdmsmdksdmskdslkdsklds",
+    "order": 0
+  }
+},
+{
+  "model": "moringaschool.module",
+  "pk": 5,
+  "fields": {
+    "course": 4,
+    "title": "Week 2",
+    "description": "Flask week 2 content",
+    "order": 1
+  }
+},
+{
+  "model": "moringaschool.module",
+  "pk": 6,
+  "fields": {
+    "course": 5,
+    "title": "Module 1",
+    "description": "The beginnig of the module, gvcnbcjnc\r\n\r\nnjxncxnccmx",
+    "order": 0
+  }
+},
+{
+  "model": "moringaschool.module",
+  "pk": 7,
+  "fields": {
+    "course": 5,
+    "title": "Module 2",
+    "description": "njsncjxncxmc  the second modulencjdncjdk\r\n\r\nkmccm mcnmsdm sc",
+    "order": 1
+  }
+},
+{
+  "model": "moringaschool.module",
+  "pk": 8,
+  "fields": {
+    "course": 8,
+    "title": "Day 1",
+    "description": "mnjfnksfksfmskfks",
+    "order": 0
+  }
+},
+{
+  "model": "moringaschool.module",
+  "pk": 9,
+  "fields": {
+    "course": 8,
+    "title": "Day 2",
+    "description": "mkdfnnfkdfkdmfdvvmdv",
+    "order": 1
+  }
+},
+{
+  "model": "moringaschool.content",
+  "pk": 2,
+  "fields": {
+    "module": 4,
+    "object_id": 1,
+    "content_type": 11,
+    "order": 0
+  }
+},
+{
+  "model": "moringaschool.content",
+  "pk": 3,
+  "fields": {
+    "module": 4,
+    "object_id": 2,
+    "content_type": 12,
+    "order": 1
+  }
+},
+{
+  "model": "moringaschool.content",
+  "pk": 4,
+  "fields": {
+    "module": 6,
+    "object_id": 2,
+    "content_type": 11,
+    "order": 0
+  }
+},
+{
+  "model": "moringaschool.content",
+  "pk": 5,
+  "fields": {
+    "module": 6,
+    "object_id": 3,
+    "content_type": 12,
+    "order": 1
+  }
+},
+{
+  "model": "moringaschool.content",
+  "pk": 6,
+  "fields": {
+    "module": 6,
+    "object_id": 1,
+    "content_type": 10,
+    "order": 2
+  }
+},
+{
+  "model": "moringaschool.text",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "title": "Week 1 Content test",
+    "created": "2022-03-12T12:04:41.075Z",
+    "updated": "2022-03-12T12:04:41.075Z",
+    "content": "Hello there bchcbjxncjncjdkx"
+  }
+},
+{
+  "model": "moringaschool.text",
+  "pk": 2,
+  "fields": {
+    "owner": 1,
+    "title": "Introduction to RUby",
+    "created": "2022-03-14T12:18:39.166Z",
+    "updated": "2022-03-14T12:18:39.166Z",
+    "content": "jndsjndsnsnskndks\r\n\r\nndsndksmdksmdksd\r\n\r\ndnksdksdmksdns"
+  }
+},
+{
+  "model": "moringaschool.image",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "title": "Dummy content",
+    "created": "2022-03-12T11:39:08.725Z",
+    "updated": "2022-03-12T11:39:08.725Z",
+    "file": "images/bootle-jar.jpg"
+  }
+},
+{
+  "model": "moringaschool.image",
+  "pk": 2,
+  "fields": {
+    "owner": 1,
+    "title": "Demo",
+    "created": "2022-03-12T12:05:03.405Z",
+    "updated": "2022-03-12T12:05:03.405Z",
+    "file": "images/bootle-jar_6iDr5ZB.jpg"
+  }
+},
+{
+  "model": "moringaschool.image",
+  "pk": 3,
+  "fields": {
+    "owner": 1,
+    "title": "Ruby core",
+    "created": "2022-03-14T12:19:05.712Z",
+    "updated": "2022-03-14T12:19:05.712Z",
+    "file": "images/bootle-jar.jpg"
+  }
+},
+{
+  "model": "moringaschool.video",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "title": "Intro to ruby",
+    "created": "2022-03-14T12:20:42.525Z",
+    "updated": "2022-03-14T12:20:42.525Z",
+    "url": "https://www.youtube.com/watch?v=c7FExaJY9A4"
   }
 }
 ]

@@ -10,6 +10,10 @@ django-braces = "*"
 django-crispy-forms = "*"
 django-registration = "*"
 django-embed-video = "*"
+cloudinary = "*"
+whitenoise = "*"
+dj3-cloudinary-storage = "*"
+gunicorn = "*"
 
 [dev-packages]
 
