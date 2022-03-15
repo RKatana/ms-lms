@@ -6,33 +6,42 @@
 {% endblock %}
 
 {% block content %}
-  <h1>
-    {{ module.title }}
-  </h1>
-  <div class="contents">
-    <h3>Modules</h3>
-    <ul id="modules">
-      {% for m in object.modules.all %}
-        <li data-id="{{ m.id }}" {% if m == module %}class="selected"{% endif %}>
-          <a href="{% url "student_course_detail_module" object.id m.id %}">
-            <span>
-              Module <span class="order">{{ m.order|add:1 }}</span>
-            </span>
-            <br>
-            {{ m.title }}
-          </a>
-        </li>
-      {% empty %}
-        <li>No modules yet.</li>
-      {% endfor %}
-    </ul>
+<div class="container-fluid ml-0">
+  <div class="row">
+    <div class="col-md-3">
+
+      <div class="contents pt-4 ml-0">
+        <h1>
+          {{ module.title }}
+        </h1>
+          <ul id="modules">
+            {% for m in object.modules.all %}
+              <li data-id="{{ m.id }}" {% if m == module %}class="selected"{% endif %}>
+                <a href="{% url "student_course_detail_module" object.id m.id %}">
+                  <span>
+                    Module <span class="orde">{{ m.order|add:1 }}</span>
+                  </span>
+                  <br>
+                  {{ m.title }}
+                </a>
+              </li>
+            {% empty %}
+              <li>No modules yet.</li>
+            {% endfor %}
+          </ul>
+      </div>
+    </div>
+    <div class="col-md-8">
+
+      <div class="container-fluid pt-4">
+            {% for content in module.contents.all %}
+              {% with item=content.item %}
+                <h2>{{ item.title }}</h2>
+                {{ item.render }}
+              {% endwith %}
+            {% endfor %}
+      </div>
+    </div>
   </div>
-  <div class="module">
-      {% for content in module.contents.all %}
-        {% with item=content.item %}
-          <h2>{{ item.title }}</h2>
-          {{ item.render }}
-        {% endwith %}
-      {% endfor %}
-  </div>
+</div>
 {% endblock %}

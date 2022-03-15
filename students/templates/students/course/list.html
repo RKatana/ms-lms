@@ -1,24 +1,25 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}My courses{% endblock %}
+{% block title %}Enrolled Courses{% endblock %}
 {% block content %}
 <div class="container mt-5">
     <h1 class="text-info mb-4 pb-4">Enrolled Courses</h1>
     <div class="row">
         {% for course in object_list %}
         <div class="col-md-4">
-            <div class="card shadow-lg">
+            <a href="{% url "student_course_detail" course.id %}" title="{{course.title}}" class="rounded"> 
+            <div class="card shadow-lg my-2 bg-dark rounded">
                 <div class="card-image">
-                    <img src="{% static 'images/moringa-logo.png' %}" alt="" width="100%" class="px-4">
+                    <img src="{% static 'images/moringa-logo.png' %}" alt="" width="100%" class="px-4 pt-4">
                 </div>
                 <div class="card-header ">
-                    <h3 class="text-info pl-3">{{ course.title }}</h3>
+                    <h3 class="text-white font-weight-bold pl-3">{{ course.title|truncatewords:3 }}</h3>
                 </div>
                 <div class="card-text">
-                    <p class="pt-3 pl-5"><a href="{% url "student_course_detail" course.id %}" class="card-link h5 text-center "> Access content</a></p>
+                    <p class="py-3 pl-5"><a href="{% url "student_course_detail" course.id %}" class="card-link h5 text-center "> Access content</a></p>
                 </div>
             </div>
-                
+        </a>  
                 
         </div>
         {% empty %}

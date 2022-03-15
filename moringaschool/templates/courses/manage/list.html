@@ -21,18 +21,18 @@
         </div>
         {% for course in object_list %}
         <div class="col-md-4">
-            <div class="card shadow-lg" style="">
-                <img class="card-img-top px-5 pt-5" src="{% static 'images/moringa-logo.png' %}" alt="Card image cap" width="">
+            <div class="card shadow-lg my-2" style="">
+                <img class="card-img-top px-3 pt-5" src="{% static 'images/moringa-logo.png' %}" alt="Card image cap" width="">
                 <div class="card-body">
                   <h3 class="card-title text-info pl-3">{{course.title}}</h3>
                   <p class="card-text">{{ course.overview|truncatewords:5 }}</p>
                 </div>
                 <div class="card-body">
-                  <a href="{% url "course_update" course.id %}" class="card-link">Update</a>
-                  <a href="{% url "course_delete" course.id %}" class="card-link">Delete</a>
-                  <a href="{% url "course_module_update" course.id %}" class="card-link">Update</a> <br>
+                    <a href="{% url "course_module_update" course.id %}" class="card-link">Add Modules</a>   
+                  <a href="{% url "course_update" course.id %}" class="card-link">Update Course</a>
+                  <a href="{% url "course_delete" course.id %}" class="card-link text-danger">Delete</a> <br> <br>
                   {% if course.modules.count > 0 %}
-                    <a href="{% url "module_content_list" course.modules.first.id %}" class="card-link"> Manage contents</a>
+                    <a href="{% url "module_content_list" course.modules.first.id %}" class="card-link"> Manage content</a>
                   {% endif %}
                 </div>
             </div>

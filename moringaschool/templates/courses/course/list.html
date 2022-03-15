@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
 {% if cohort %}
 {{ cohort.title }} courses
@@ -7,43 +8,60 @@ All courses
 {% endif %}
 {% endblock %}
 {% block content %}
-<h1>
-{% if cohort %}
-{{ cohort.title }} courses
-{% else %}
-All courses
-{% endif %}
-</h1>
-<div class="contents">
-    <h3>Cohorts</h3>
-    <ul id="modules">
-        <li {% if not cohort %}class="selected"{% endif %}>
-        <a href="{% url "course_list" %}">All</a>
-        </li>
-        {% for s in cohorts %}
-        <li {% if cohort == s %}class="selected"{% endif %}>
-        <a href="{% url "course_list_cohort" s.slug %}">
-        {{ s.title }}
-        <br><span>{{ s.total_courses }} courses</span>
-        </a>
-        </li>
-        {% endfor %}
-    </ul>
+<div class="container-fluid ">
+    <div class="row">    
+        <div class="col-md-3 pl-3">
+            <div class="contents pt-5 pl-4">
+                <h3>Cohorts</h3>
+                <ul id="modules">
+                    <li {% if not cohort %}class="selected"{% endif %}>
+                    <a href="{% url "course_list" %}">All</a>
+                    </li>
+                    {% for s in cohorts %}
+                    <li {% if cohort == s %}class="selected"{% endif %}>
+                    <a href="{% url "course_list_cohort" s.slug %}">
+                    {{ s.title }}
+                    <br><span>{{ s.total_courses }} courses</span>
+                    </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <h1 class="h1 col-md-12 text-center text-info ">
+                    {% if cohort %}
+                    {{ cohort.title }} courses
+                    {% else %}
+                    All courses
+                    {% endif %}
+                </h1>
+                {% for course in courses %}
+                {% with cohort=course.cohort %}
+                <div class="col-md-6">
+                    <div class="card shadow-lg my-2">
+                        <img class="card-img-top px-5 pt-5 w-50" src="{% static 'images/moringa-logo.png' %}" alt="Card image cap" width="auto">
+                        <div class="card-body">
+                          <h3 class="card-title text-info "><a href="{% url "course_detail" course.slug %}">
+                            {{ course.title }}
+                            </a></h3>
+                          <p class="card-text">{{ course.overview|truncatewords:5 }}</p>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                <a href="{% url "course_list_cohort" cohort.slug %}">{{ cohort }}</a>.
+                                {{ course.total_modules }} modules.
+                                Instructor: {{ course.owner.username }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endwith %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </div>
-<div class="module">
-    {% for course in courses %}
-    {% with cohort=course.cohort %}
-    <h3>
-        <a href="{% url "course_detail" course.slug %}">
-        {{ course.title }}
-        </a>
-    </h3>
-    <p>
-        <a href="{% url "course_list_cohort" cohort.slug %}">{{ cohort }}</a>.
-        {{ course.total_modules }} modules.
-        Instructor: {{ course.owner.get_full_name }}
-    </p>
-    {% endwith %}
-    {% endfor %}
-</div>
+
 {% endblock %}

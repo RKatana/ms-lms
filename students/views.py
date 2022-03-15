@@ -26,11 +26,10 @@ class StudentRegistrationView(CreateView):
 class StudentEnrollCourseView(LoginRequiredMixin, FormView):
     course = None
     form_class = CourseEnrollForm
-    template_name = 'courses/course/detail.html'
+    # template_name = 'students/course/enroll.html'
     def form_valid(self, form):
         self.course = form.cleaned_data['course']
         self.course.student.add(self.request.user)
-        breakpoint()
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -59,5 +58,8 @@ class StudentCourseDetailView(DetailView):
         if 'module_id' in self.kwargs:
             context['module'] = course.modules.get(id=self.kwargs['module_id'])
         else:
-            context['module'] = course.modules.all()[0]
+            try:    
+                context['module'] = course.modules.all()[0]
+            except IndexError:
+                context = None
         return context
