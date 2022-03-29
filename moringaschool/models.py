@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from .fields import OrderField
+from django_resized import ResizedImageField
 from django.template.loader import render_to_string
 
 class Cohort(models.Model):
@@ -84,7 +85,7 @@ class File(ItemBase):
     file = models.FileField(upload_to='files')
 
 class Image(ItemBase):
-    file = models.FileField(upload_to='images')
+    file = ResizedImageField(upload_to='images')
 
 class Video(ItemBase):
     url = models.URLField()

@@ -22,6 +22,7 @@
                 {{ form|crispy}}
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{% url 'student_course_list'%}" />
+                <i id="toggle" class="bi bi-eye-fill input-group-text text-warning d-inline" onclick="toggleShowPassword(event)" title = 'Show password'>Show Password</i> <br> <br>
                 <p><input type="submit" value="Log-in" class="btn btn-outline-info px-5"></p>
             </form>
         </div>
@@ -31,4 +32,28 @@
         </div>
     </div>
 </div>
+<script>
+    let clicked = false;
+    function toggleShowPassword(event){
+        event.preventDefault()
+        let passwordInput = document.getElementById('id_password')
+        let icon = document.getElementById('toggle')
+        if (clicked){
+            
+            passwordInput.type = 'password'
+            icon.className = 'bi bi-eye-fill input-group-text text-warning d-inline'
+            icon.title = 'Show password'
+            icon.innerHTML = 'Hide password'
+            clicked = false
+        }else{
+            passwordInput.type = 'text'
+            icon.className = 'bi bi-eye-fill input-group-text text-info d-inline'
+            icon.title = 'Hide password'
+            icon.innerHTML = 'Hide Password'
+            clicked = true
+        }
+
+
+    }
+</script>
 {% endblock %}

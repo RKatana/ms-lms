@@ -16,7 +16,10 @@
                 <form action="" method="POST"> 
                     {% csrf_token %}            
                     {{form|crispy}}
+                    <i id="toggle" class="bi bi-eye-fill input-group-text text-warning d-inline" onclick="toggleShowPassword(event)" title = 'Show password'>Show Password</i> <br> <br>
                     <input type="submit" value="Register" class="btn btn-outline-info">
+                    <p class="d-inline ml-5">Have an account?  <a href="{% url 'login' %}" class="ml-2">Login here</a></p>
+                   
                 </form>
             </div>
             <div class="col-md-4 d-flex">
@@ -26,5 +29,31 @@
         
         
     </div>
+    <script async>
+        let clicked = false;
+        function toggleShowPassword(event){
+            event.preventDefault()
+            let passwordInput; 
+            let icon = document.getElementById('toggle')
+            if (clicked){
+                passwordInput = document.querySelectorAll('[type="text"]')
+                passwordInput.forEach(val=>val.type = 'password')
+                icon.className = 'bi bi-eye-fill input-group-text text-warning d-inline'
+                icon.innerHTML = 'Show password'
+                icon.title = 'Show password'
+                clicked = false
+            }else{
+                passwordInput = document.querySelectorAll('[type="password"]')
+                passwordInput.forEach(val=>val.type = 'text')
+                console.log(passwordInput);
+                icon.className = 'text-info bi bi-eye-fill input-group-text d-inline'
+                icon.innerHTML = 'Hide password'
+                icon.title = 'Hide Password'
+                clicked = true
+            }
+    
+    
+        }
+    </script>
 {% endblock content %}
     

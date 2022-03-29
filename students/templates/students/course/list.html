@@ -23,9 +23,10 @@
                 
         </div>
         {% empty %}
-        <p class="text-info">
+        <p class="text-info text-center">
         You are not enrolled in any courses yet.
         </p>
+        <a href="{% url "student_enroll_course" %}" class="btn btn-warning text-info">Enroll Now!!!</a>
         {% endfor %}
         </div>
     </div>
