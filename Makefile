@@ -1,4 +1,5 @@
 server:
+	
 	python manage.py runserver
 
 migrations:

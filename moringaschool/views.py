@@ -89,7 +89,6 @@ class CourseModuleUpdateView(TemplateResponseMixin, View):
 
     def dispatch(self, request, pk):
         self.course = get_object_or_404(Course, id= pk, owner = request.user)
-
         return super().dispatch(request, pk)
 
     def get(self, request, *args, **kwargs):
