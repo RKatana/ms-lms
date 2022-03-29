@@ -22,6 +22,7 @@ Check out the project board for tasks and features on [Pivotal Tracker]('https:/
 - Django Embed Video
 - Django Registration
 - Django braces
+- Django Resized
 
 
 ## Set up and Installation
@@ -44,4 +45,4 @@ Check out the project board for tasks and features on [Pivotal Tracker]('https:/
 <p><img src="./media/images/admin-login.png" width="90%" alt="Screenshot Pivotal tracker"></p>
 <p><img src="./media/images/ms-admin-panel.png" width="90%" alt="Screenshot Pivotal tracker"></p>
 
-### Licence: [BSD]('./LICENSE')
+### Licence: [BSD](https://github.com/RKatana/ms-lms/blob/main/LICENSE)
